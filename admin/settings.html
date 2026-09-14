@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | LotusCafe Admin</title>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link rel="stylesheet" href="settings.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <!-- Sidebar -->
+
+    <div class="sidebar">
+
+      <div class="logo">
+        <h2>LotusCafe</h2>
+        <p>Admin Panel</p>
+      </div>
+
+      <ul>
+
+        <li>
+          <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li>
+          <a href="menu-management.html">
+            <i class="fa-solid fa-utensils"></i>
+            Menu
+          </a>
+        </li>
+
+        <li>
+          <a href="orders.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Orders
+          </a>
+        </li>
+
+        <li>
+          <a href="reviews.html">
+            <i class="fa-solid fa-star"></i>
+            Reviews
+          </a>
+        </li>
+
+        <li>
+          <a href="customers.html">
+            <i class="fa-solid fa-users"></i>
+            Customers
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            <i class="fa-solid fa-envelope"></i>
+            Contact
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+          </a>
+        </li>
+
+        <li>
+          <a href="#" id="logoutBtn"> 
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+
+      <header>
+
+        <h1>Settings</h1>
+
+        <div class="admin-profile">
+          <i class="fa-solid fa-user"></i>
+          <span id="adminHeaderName">Admin</span>
+        </div>
+
+      </header>
+
+      <!-- Admin Profile -->
+
+      <div class="settings-card">
+
+        <h2>
+          <i class="fa-solid fa-user"></i>
+          Admin Profile
+        </h2>
+
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="adminName">
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="adminEmail">
+        </div>
+
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="text" id="adminPhone">
+        </div>
+
+      </div>
+
+      <!-- Change Password -->
+
+      <div class="settings-card">
+
+        <h2>
+          <i class="fa-solid fa-lock"></i>
+          Change Password
+        </h2>
+
+        <div class="form-group">
+          <label>Current Password</label>
+          <input type="password" id="currentPassword">
+        </div>
+
+        <div class="form-group">
+          <label>New Password</label>
+          <input type="password" id="newPassword">
+        </div>
+
+        <div class="form-group">
+          <label>Confirm Password</label>
+          <input type="password" id="confirmPassword">
+        </div>
+
+      </div>
+
+      <!-- Buttons -->
+
+      <div class="settings-actions">
+
+        <button id="saveBtn" class="save-btn">
+          Save Changes
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="settings.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu Management | LotusCafe Admin</title>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link rel="stylesheet" href="menu-management.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <div class="logo">
+        <h2>LotusCafe</h2>
+        <p>Admin Panel</p>
+      </div>
+
+      <ul>
+
+        <li>
+          <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li class="active">
+          <a href="menu-management.html">
+            <i class="fa-solid fa-utensils"></i>
+            Menu
+          </a>
+        </li>
+
+        <li>
+          <a href="orders.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Orders
+          </a>
+        </li>
+
+        <li>
+          <a href="reviews.html">
+            <i class="fa-solid fa-star"></i>
+            Reviews
+          </a>
+        </li>
+
+        <li>
+          <a href="customers.html">
+            <i class="fa-solid fa-users"></i>
+            Customers
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            <i class="fa-solid fa-envelope"></i>
+            Contact
+          </a>
+        </li>
+
+        <li>
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+          </a>
+        </li>
+
+        <li>
+          <a href="#" id="logoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+
+      <header>
+
+        <h1>Menu Management</h1>
+
+        <button class="add-btn">
+          <i class="fa-solid fa-plus"></i>
+          Add New Item
+        </button>
+
+      </header>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Image</th>
+            <th>Item Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Status</th>
+            <th>Action</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="menuTable">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+  <!-- Add Item Popup -->
+  
+  <div class="popup" id="popup">
+  
+    <div class="popup-box">
+  
+      <div class="popup-scroll-area">
+  
+        <h2>Edit Menu Item</h2>
+  
+        <input type="text" id="foodName" placeholder="Food Name">
+  
+        <select id="category">
+  
+          <option value="">Select Category</option>
+  
+          <option value="Coffee">Coffee</option>
+  
+          <option value="Pizza">Pizza</option>
+  
+          <option value="Snacks">Snacks</option>
+  
+          <option value="Dessert">Dessert</option>
+  
+        </select>
+  
+        <input type="number" id="price" placeholder="Price">
+  
+        <div id="sizePriceFields">
+  
+          <div class="form-group size-group sml-group">
+            <label>Small Price</label>
+            <input type="number" id="smallPrice" placeholder="Small Price">
+          </div>
+  
+          <div class="form-group size-group sml-group">
+            <label>Medium Price</label>
+            <input type="number" id="mediumPrice" placeholder="Medium Price">
+          </div>
+  
+          <div class="form-group size-group sml-group">
+            <label>Large Price</label>
+            <input type="number" id="largePrice" placeholder="Large Price">
+          </div>
+  
+          <div class="form-group size-group dessert-group">
+            <label>1 Pc Price</label>
+            <input type="number" id="onePcPrice" placeholder="1 Pc Price">
+          </div>
+  
+          <div class="form-group size-group dessert-group">
+            <label>2 Pcs Price</label>
+            <input type="number" id="twoPcPrice" placeholder="2 Pcs Price">
+          </div>
+  
+          <div class="form-group size-group dessert-group">
+            <label>4 Pcs Price</label>
+            <input type="number" id="fourPcPrice" placeholder="4 Pcs Price">
+          </div>
+  
+          <div class="form-group size-group garlic-group">
+            <label>8 Pcs Price</label>
+            <input type="number" id="eightPcPrice" placeholder="8 Pcs Price">
+          </div>
+  
+          <div class="form-group size-group garlic-group">
+            <label>12 Pcs Price</label>
+            <input type="number" id="twelvePcPrice" placeholder="12 Pcs Price">
+          </div>
+  
+        </div>
+  
+        <select id="status">
+  
+          <option>Available</option>
+          <option>Out of Stock</option>
+  
+        </select>
+  
+        <label>Select Food Image</label>
+  
+        <input type="file" id="image" accept="image/*">
+  
+        <img id="preview" src=""
+          style="display:none; width:100px; height:100px; object-fit:cover; border-radius:10px; margin:10px auto; display:block;">
+  
+        <div class="popup-buttons">
+  
+          <button id="saveBtn">Save</button>
+  
+          <button id="closeBtn">Cancel</button>
+  
+        </div>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <script src="menu-management.js"></script>
+
+</body>
+
+</html>

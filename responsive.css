@@ -1,0 +1,1217 @@
+/* =========================================
+   LotusCafe – Responsive CSS (Mobile First)
+   ========================================= */
+
+/* ─── Base overflow fix ─── */
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+/* =========================================
+   HAMBURGER BUTTON  (hidden on desktop)
+   ========================================= */
+
+.hamburger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background .2s;
+    padding: 0;
+}
+
+.hamburger:hover {
+    background: rgba(214, 163, 84, .15);
+}
+
+.hamburger i {
+    color: #d6a354;
+    font-size: 22px;
+    transition: transform .3s ease;
+}
+
+.hamburger.open i {
+    transform: rotate(90deg);
+}
+
+/* =========================================
+   MOBILE SIDEBAR  (slides from right)
+   ========================================= */
+
+.mobile-nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    backdrop-filter: blur(3px);
+    z-index: 1100;
+    opacity: 0;
+    transition: opacity .3s ease;
+}
+
+.mobile-nav-overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+.mobile-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 270px;
+    max-width: 82vw;
+    height: 100vh;
+    background: linear-gradient(160deg, #1a1109 0%, #0d0d0d 100%);
+    z-index: 1200;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    box-shadow: -4px 0 30px rgba(0, 0, 0, .65);
+    transition: right .35s cubic-bezier(.4, 0, .2, 1);
+    border-left: 1px solid rgba(214, 163, 84, .18);
+    overflow-y: auto;
+}
+
+.mobile-sidebar.active {
+    right: 0;
+}
+
+/* Logo + Close in one row */
+.mobile-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(214, 163, 84, .2);
+    margin-bottom: 6px;
+}
+
+.mobile-sidebar-logo {
+    color: #fff;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: .4px;
+}
+
+.mobile-sidebar-logo span {
+    color: #d6a354;
+}
+
+.mobile-sidebar-close {
+    background: transparent !important;
+    border: none !important;
+    color: #d6a354;
+    font-size: 20px;
+    width: 34px;
+    height: 34px;
+    border-radius: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s;
+    flex-shrink: 0;
+}
+
+.mobile-sidebar-close:hover {
+    background: transparent !important;
+    border: none !important;
+    transform: rotate(90deg);
+}
+
+/* Nav links */
+.mobile-nav {
+    display: flex !important;
+    flex-direction: column;
+    gap: 2px;
+    margin-top: 4px;
+}
+
+.mobile-nav a {
+    display: block !important;
+    text-decoration: none;
+    color: #ccc;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 12px 14px;
+    border-radius: 10px;
+    transition: background .22s, color .22s, padding-left .22s;
+    border-left: 3px solid transparent;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a.active {
+    background: rgba(214, 163, 84, .12);
+    color: #d6a354;
+    border-left-color: #d6a354;
+    padding-left: 20px;
+}
+
+/* =========================================
+   TABLET  ≤ 991px
+   ========================================= */
+
+@media (max-width: 991px) {
+
+    /* Show hamburger, hide desktop nav */
+    nav {
+        display: none !important;
+    }
+
+    .hamburger {
+        display: flex !important;
+    }
+
+    /* Header */
+    header {
+        padding: 12px 18px;
+        gap: 10px;
+    }
+
+    .icons {
+        width: auto;
+        justify-content: flex-end;
+        gap: 14px;
+    }
+
+    /* Hero content */
+    .content {
+        width: 90%;
+    }
+
+    .content h1 {
+        font-size: 40px;
+    }
+
+    .content p {
+        font-size: 15px;
+        margin-bottom: 24px;
+    }
+
+    /* About */
+    .about {
+        padding: 70px 5%;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .about-content {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-content h4 {
+        font-size: 30px;
+        margin-bottom: 20px;
+    }
+
+    .about-content h2 {
+        font-size: 17px;
+        margin-bottom: 16px;
+    }
+
+    /* Menu */
+    .menu-section {
+        padding: 60px 5%;
+    }
+
+    .menu-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .menu-filter {
+        margin: 24px 0 36px;
+        gap: 10px;
+    }
+
+    /* Reviews */
+    .review-section {
+        padding: 60px 5%;
+    }
+
+    .review-heading {
+        margin-bottom: 32px;
+    }
+
+    /* Contact */
+    .contact-section {
+        padding: 60px 5%;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 32px;
+    }
+
+    .contact-form,
+    .contact-image {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .contact-title {
+        margin-bottom: 36px;
+    }
+
+    /* Footer */
+    .footer-content {
+        width: 92%;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    /* Modals / sidebars */
+    .cart-sidebar,
+    .wishlist-sidebar {
+        width: 340px;
+    }
+
+    .checkout-box,
+    .invoice-box,
+    .login-box,
+    .search-box {
+        width: 92%;
+        max-width: 520px;
+    }
+}
+
+/* =========================================
+   MOBILE  ≤ 768px
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    /* ── Header ── */
+    header {
+        padding: 10px 14px;
+    }
+
+    .logo {
+        font-size: 17px;
+        display: flex;
+    }
+
+    .logo span {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: #d6a354;
+    }
+
+    #userName {
+        font-size: 14px;
+        margin-left: 8px !important;
+    }
+
+    .icons {
+        gap: 8px;
+    }
+
+    .icons i {
+        font-size: 14px;
+        margin-left: 5px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+        height: 100vh;
+    }
+
+    .slide {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .content {
+        width: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        top: 55%;
+    }
+
+    .content h4 {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .content h1 {
+        font-size: 28px;
+    }
+
+    .content h3 {
+        margin: 10px 0;
+    }
+
+    .content p {
+        font-size: 13px;
+        margin-bottom: 18px;
+    }
+
+    .order-btn {
+        font-size: 13px;
+        padding: 8px 18px;
+    }
+
+    /* ── About ── */
+    .about {
+        padding: 55px 16px;
+    }
+
+    .about-container {
+        gap: 28px;
+    }
+
+    .about-images {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .about-images img {
+        width: 100%;
+        max-width: 320px;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 14px;
+        margin: 0 auto;
+    }
+
+    .about-images img:last-child {
+        height: 220px;
+    }
+
+    .about-content h4 {
+        font-size: 26px;
+        margin-bottom: 14px;
+    }
+
+    .about-content h2 {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .about-content li {
+        font-size: 13px;
+        margin-bottom: 10px;
+        text-align: left;
+    }
+
+    /* ── Menu ── */
+    .menu-section {
+        padding: 50px 14px;
+    }
+
+    .menu-title {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .menu-filter {
+        margin: 18px 0 26px;
+        gap: 8px;
+    }
+
+    .filter-btn {
+        font-size: 12px;
+        padding: 7px 12px;
+    }
+
+    .menu-container {
+        gap: 16px;
+    }
+
+    .sizes {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    .menu-card a {
+        width: 88%;
+        font-size: 14px;
+    }
+
+    .menu-card img {
+        width: 140px;
+        height: 160px;
+    }
+
+    .menu-card h3 {
+        font-size: 20px;
+    }
+
+    .menu-card h4 {
+        font-size: 17px;
+    }
+
+    /* ── Reviews ── */
+    .review-section {
+        padding: 50px 14px;
+    }
+
+    .review-heading h2 {
+        font-size: 28px;
+    }
+
+    .review-heading {
+        margin-bottom: 24px;
+    }
+
+    .review-box {
+        width: 100%;
+        padding: 20px 16px;
+    }
+
+    .review-summary-new {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+
+    .rating-info {
+        text-align: center;
+        align-items: center;
+    }
+
+    /* ── Contact ── */
+    .contact-section {
+        padding: 50px 14px;
+    }
+
+    .contact-title {
+        margin-bottom: 24px;
+    }
+
+    .contact-title h2 {
+        font-size: 26px;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+    .contact-form form {
+        gap: 16px;
+    }
+
+    .contact-image img {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        margin: 0 auto;
+    }
+
+    /* ── Footer ── */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+        padding: 28px 0;
+        width: 90%;
+    }
+
+    .footer-box {
+        width: 100%;
+    }
+
+    .footer-contact {
+        justify-content: center;
+    }
+
+    .footer-box p i {
+        margin-right: 6px;
+    }
+
+    /* ── Cart / Wishlist sidebars ── */
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+
+    .cart-sidebar.active {
+        right: 0;
+    }
+
+    .wishlist-sidebar {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        right: -100vw !important;
+        box-sizing: border-box !important;
+    }
+
+    .wishlist-sidebar.active {
+        right: 0 !important;
+    }
+
+    #wishlist-items {
+        min-width: 0 !important;
+        overflow-x: hidden !important;
+    }
+
+    .wishlist-card {
+        min-width: 0 !important;
+    }
+
+    .wishlist-info {
+        min-width: 0 !important;
+    }
+
+    .wishlist-info h4,
+    .wishlist-info p {
+        overflow-wrap: anywhere !important;
+    }
+
+    .wishlist {
+        top: 20px;
+        right: 20px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .wishlist i {
+        font-size: 15px;
+    }
+
+    /* ── Checkout / Login / Search ── */
+    .checkout-box,
+    .invoice-box,
+    .login-box {
+        width: 90%;
+        max-width: 375px;
+    }
+
+    .checkout-box {
+        max-height: 85vh;
+    }
+
+    .search-box {
+        width: 94%;
+    }
+
+    /* ── Table booking ── */
+
+    /* ── Card payment ── */
+    .card-row {
+        display: block !important;
+        flex-direction: column;
+    }
+
+    .card-row input {
+        width: 100% !important;
+        margin-bottom: 12px;
+    }
+
+    #expiry,
+    #cvv {
+        width: 100% !important;
+    }
+
+    .coupon-input {
+        flex-direction: column;
+    }
+
+    .coupon-input button {
+        width: 100%;
+    }
+
+    .payment-method label {
+        font-size: 14px;
+    }
+
+    /* ── Cart / Wishlist headers ── */
+    .cart-header h2,
+    .wishlist-header h2 {
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 480px) {
+    .wishlist {
+        top: 15px;
+        right: 31px;
+    }
+}
+
+/* =========================================
+   SMALL PHONES  ≤ 480px
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    header {
+        padding: 9px 12px;
+    }
+
+    .logo {
+        font-size: 14px;
+    }
+
+    .icons i,
+    .icons .wishlist-icon i,
+    .icons .cart-icon i {
+        font-size: 13px;
+    }
+
+    .content p {
+        font-size: 12px;
+        margin-bottom: 14px;
+    }
+
+    .about {
+        padding: 44px 12px;
+    }
+
+    .about-content h4 {
+        font-size: 22px;
+    }
+
+    .menu-section {
+        padding: 40px 10px;
+    }
+
+    .menu-title,
+    .review-heading h2,
+    .contact-title h2 {
+        font-size: 24px;
+    }
+
+    .menu-card img {
+        height: 140px;
+    }
+
+    .menu-card {
+        padding: 10px;
+    }
+
+    .menu-card h3 {
+        font-size: 18px;
+    }
+
+    .review-section {
+        padding: 40px 10px;
+    }
+
+    .contact-section {
+        padding: 40px 10px;
+    }
+
+    .checkout-box,
+    .invoice-box {
+        padding: 15px;
+    }
+
+    .footer-content {
+        padding: 22px 0;
+        gap: 16px;
+    }
+
+    .footer-box h2 {
+        font-size: 20px;
+    }
+
+    .mobile-sidebar {
+        width: 260px;
+    }
+
+    .search-box button {
+        padding: 10px 0;
+    }
+
+    .search-box input {
+        padding: 12px 22px;
+    }
+
+    .search-box {
+        height: 44px;
+    }
+
+    .login-box {
+        padding: 16px;
+    }
+
+    #closeLogin {
+        top: 9px;
+        right: 13px;
+        font-size: 27px;
+    }
+
+
+}
+
+/* =========================================
+   WISHLIST  ≤ 992px
+   ========================================= */
+
+@media (max-width: 992px) {
+    .wishlist-sidebar {
+        width: min(360px, 100vw) !important;
+        max-width: 100vw !important;
+        right: -100vw !important;
+    }
+
+    .wishlist-sidebar.active {
+        right: 0 !important;
+    }
+}
+
+@media (min-width: 375px) and (max-width: 480px) {
+    .wishlist {
+        top: 15px;
+    }
+}
+
+@media screen and (max-width:374px) {
+    .menu-card a {
+        width: 90%;
+    }
+
+    .menu-card img {
+        width: 120px;
+    }
+
+    .wishlist {
+        top: 15px;
+        right: 15px;
+    }
+
+}
+
+/* ================================
+   CONTACT SECTION MOBILE FIX
+   ================================ */
+
+@media (max-width: 768px) {
+
+    .contact-section {
+        width: 100%;
+        padding: 50px 14px !important;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .contact-title,
+    .contact-container {
+        width: 80%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-container {
+        margin: 0;
+        gap: 25px;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-form form {
+        width: 100%;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        width: 80%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-image {
+        width: 70%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-image img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        box-sizing: border-box;
+    }
+}
+
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+    .contact-section {
+        padding: 40px 10px !important;
+    }
+
+    .contact-title {
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    .contact-title h2 {
+        font-size: 24px;
+    }
+
+    .contact-container {
+        width: 100%;
+        gap: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+    }
+
+    .contact-form button {
+        width: 100%;
+    }
+
+    .contact-image img {
+        width: 100%;
+    }
+}
+
+/* ================================
+   CONTACT FORM - TABLET CENTER FIX
+   ================================ */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .contact-section {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-container {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    .contact-form {
+        width: 100%;
+        max-width: 650px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .contact-form form {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form button {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-image {
+        width: 70%;
+        max-width: 650px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .contact-image img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .contact-title {
+        width: 100%;
+        max-width: 714px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
+    }
+
+    .contact-title h2 {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
+/* ===== TABLET: 3 SIZE BUTTONS IN ONE ROW ===== */
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .sizes {
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        margin: 16px 0 !important;
+        width: 100% !important;
+    }
+
+    .sizes .size-btn {
+        flex: 1 !important;
+        width: auto !important;
+        min-width: 0 !important;
+        margin: 0 !important;
+        padding: 8px 4px !important;
+        font-size: 13px !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* =========================================
+   CART RESPONSIVE WIDTH
+   ========================================= */
+
+/* Tablet: 481px - 768px */
+@media (min-width: 481px) and (max-width: 768px) {
+    .cart-sidebar {
+        width: 340px !important;
+        max-width: 90vw !important;
+        right: -340px !important;
+    }
+
+    .cart-sidebar.active {
+        right: 0 !important;
+    }
+}
+
+/* Small Mobile: 320px - 480px */
+@media (max-width: 480px) {
+    .cart-sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
+        right: -100% !important;
+    }
+
+    .cart-sidebar.active {
+        right: 0 !important;
+    }
+}
+
+/* =========================================
+   CART MOBILE / TABLET
+   TOP + ITEMS ONE SCROLL AREA
+   FOOTER FIXED
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .cart-sidebar {
+        height: 100vh !important;
+        max-height: 100vh !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        overflow: hidden !important;
+    }
+
+    /* HEADER FIXED */
+    .cart-header {
+        flex: 0 0 auto !important;
+    }
+
+    /* =====================================
+       ONE SCROLL AREA
+       ===================================== */
+
+    .cart-scroll-area {
+        flex: 1 1 0 !important;
+        min-height: 0 !important;
+
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+
+        padding-bottom: 10px !important;
+    }
+
+    /* SMALL SCROLLBAR */
+
+    .cart-scroll-area::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .cart-scroll-area::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .cart-scroll-area::-webkit-scrollbar-thumb {
+        background: #d6a354;
+        border-radius: 10px;
+    }
+
+    /* Cart items હવે પોતે scroll નહીં થાય */
+    .cart-items {
+        flex: none !important;
+        overflow: visible !important;
+
+        min-height: auto !important;
+        max-height: none !important;
+    }
+
+    /* =====================================
+       BOTTOM TOTAL + CHECKOUT FIXED
+       ===================================== */
+
+    .cart-footer {
+        flex: 0 0 auto !important;
+
+        width: 100% !important;
+        box-sizing: border-box !important;
+
+        padding: 10px 12px !important;
+
+        position: relative !important;
+        bottom: auto !important;
+    }
+
+    .cart-summary {
+        margin-bottom: 8px !important;
+    }
+
+    .checkout-btn {
+        width: 100% !important;
+        margin: 0 !important;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+   320px - 480px
+   ========================================= */
+
+@media (max-width: 480px) {
+
+    .cart-sidebar {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .cart-scroll-area {
+        padding-bottom: 8px !important;
+    }
+
+    .cart-footer {
+        padding: 8px 10px !important;
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+   481px - 768px
+   ========================================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .cart-sidebar {
+        width: 340px !important;
+        max-width: 90vw !important;
+    }
+
+    .cart-scroll-area {
+        padding-bottom: 10px !important;
+    }
+
+}
+
+/* =========================================
+   DESKTOP CART - RESTORE ORIGINAL LAYOUT
+   769px AND ABOVE
+   ========================================= */
+
+@media (min-width: 769px) {
+
+    /* Scroll wrapper desktop પર layoutમાંથી remove */
+    .cart-sidebar .cart-scroll-area {
+        display: contents !important;
+    }
+
+    /* Cart header */
+    .cart-sidebar .cart-header {
+        flex: 0 0 auto !important;
+    }
+
+    /* Desktop પર ONLY CART ITEMS scroll */
+    .cart-sidebar .cart-items {
+        flex: 1 1 auto !important;
+        min-height: 0 !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        padding: 18px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+    }
+
+    /* Footer original position */
+    .cart-sidebar .cart-footer {
+        flex: 0 0 auto !important;
+        position: relative !important;
+        width: auto !important;
+        padding: 20px !important;
+    }
+
+    /* Desktop scrollbar */
+    .cart-sidebar .cart-items::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .cart-sidebar .cart-items::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .cart-sidebar .cart-items::-webkit-scrollbar-thumb {
+        background: #d6a354;
+        border-radius: 10px;
+    }
+}
+
+/* =========================================
+   CHECKOUT CLOSE BUTTON - MOBILE SCROLL
+   ========================================= */
+
+@media (max-width: 768px) {
+
+    .checkout-box {
+        position: relative !important;
+        overflow-y: auto !important;
+    }
+
+    #closeCheckout {
+        position: absolute !important;
+        top: 12px !important;
+        right: 15px !important;
+        float: none !important;
+        margin: 0 !important;
+        z-index: 10 !important;
+    }
+
+}
+
+
+
+

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customers | LotusCafe Admin</title>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link rel="stylesheet" href="customers.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+
+  <div class="sidebar">
+
+    <div class="logo">
+      <h2>LotusCafe</h2>
+      <p>Admin Panel</p>
+    </div>
+
+    <ul>
+
+      <li>
+        <a href="dashboard.html">
+          <i class="fa-solid fa-house"></i>
+          Dashboard
+        </a>
+      </li>
+
+      <li>
+        <a href="menu-management.html">
+          <i class="fa-solid fa-utensils"></i>
+          Menu
+        </a>
+      </li>
+
+      <li>
+        <a href="orders.html">
+          <i class="fa-solid fa-cart-shopping"></i>
+          Orders
+        </a>
+      </li>
+
+      <li>
+        <a href="reviews.html">
+          <i class="fa-solid fa-star"></i>
+          Reviews
+        </a>
+      </li>
+
+      <li class="active">
+        <a href="customers.html">
+          <i class="fa-solid fa-users"></i>
+          Customers
+        </a>
+      </li>
+
+      <li>
+        <a href="contact.html">
+          <i class="fa-solid fa-envelope"></i>
+          Contact
+        </a>
+      </li>
+
+      <li>
+        <a href="settings.html">
+          <i class="fa-solid fa-gear"></i>
+          Settings
+        </a>
+      </li>
+
+      <li>
+        <a href="#" id="logoutBtn">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Logout
+        </a>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <!-- Main Content -->
+
+  <div class="main-content">
+
+    <header>
+      <h1>Customers Management</h1>
+    </header>
+
+    <!-- Customer Table -->
+
+    <div class="customer-table">
+
+      <div class="table-header">
+
+        <div class="search-box">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchCustomer" placeholder="Search Customer...">
+        </div>
+
+      </div>
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Join Date</th>
+            <th>Orders</th>
+            <th>Action</th>
+
+          </tr>
+
+        </thead>
+
+        <tbody id="customerTable">
+
+        </tbody>
+
+      </table>
+
+      <div class="pagination-container">
+
+        <button id="prevPage" class="page-btn">
+          <i class="fa-solid fa-angle-left"></i> Previous
+        </button>
+
+        <span id="pageInfo"></span>
+
+        <button id="nextPage" class="page-btn">
+          Next <i class="fa-solid fa-angle-right"></i>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- View Customer Popup -->
+
+    <div class="popup" id="viewPopup">
+
+      <div class="popup-content">
+
+        <span class="close" id="closeView">&times;</span>
+
+        <h2>Customer Details</h2>
+
+        <p><strong>Name :</strong>
+          <span id="popupName"></span>
+        </p>
+
+        <p><strong>Email :</strong>
+          <span id="popupEmail"></span>
+        </p>
+
+        <p><strong>Phone :</strong>
+          <span id="popupPhone"></span>
+        </p>
+
+        <p><strong>Join Date :</strong>
+          <span id="popupDate"></span>
+        </p>
+
+        <p><strong>Total Orders :</strong>
+          <span id="popupOrders"></span>
+        </p>
+
+      </div>
+
+    </div>
+
+    <!-- Delete Popup -->
+
+    <div class="popup" id="deletePopup">
+
+      <div class="popup-content">
+
+        <h2>Delete Customer</h2>
+
+        <p style="margin:20px 0;">
+          Are you sure you want to delete this customer?
+        </p>
+
+        <div style="display:flex;justify-content:flex-end;gap:10px;">
+
+          <button class="view-btn" id="cancelDelete">
+            Cancel
+          </button>
+
+          <button class="delete-btn" id="confirmDelete">
+            Delete
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="customers.js"></script>
+
+</body>
+
+</html>

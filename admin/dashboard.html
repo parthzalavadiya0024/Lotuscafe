@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LotusCafe Admin Dashboard</title>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="logo">
+            <h2>LotusCafe</h2>
+            <p>Admin Panel</p>
+        </div>
+
+        <ul>
+        
+            <li class="active">
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+        
+            <li>
+                <a href="menu-management.html">
+                    <i class="fa-solid fa-utensils"></i>
+                    Menu
+                </a>
+            </li>
+        
+            <li>
+                <a href="orders.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Orders
+                </a>
+            </li>
+        
+            <li>
+                <a href="reviews.html">
+                    <i class="fa-solid fa-star"></i>
+                    Reviews
+                </a>
+            </li>
+        
+            <li>
+                <a href="customers.html">
+                    <i class="fa-solid fa-users"></i>
+                    Customers
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    <i class="fa-solid fa-envelope"></i>
+                    Contact 
+                </a>
+            </li>
+        
+            <li>
+                <a href="settings.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+            </li>
+        
+            <li>
+                <a href="#" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+        
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+
+    <div class="main-content">
+
+        <header>
+
+            <h1>Dashboard</h1>
+
+            <div class="admin-profile">
+
+                <i class="fa-solid fa-user"></i>
+                <span>Admin</span>
+
+            </div>
+
+        </header>
+
+        <!-- Cards -->
+
+        <div class="cards">
+
+            <div class="card">
+
+                <i class="fa-solid fa-cart-shopping"></i>
+
+                <h3>Total Orders</h3>
+
+                <h2 id="totalOrders">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-indian-rupee-sign"></i>
+
+                <h3>Total Revenue</h3>
+
+                <h2 id="totalRevenue">₹0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-users"></i>
+
+                <h3>Total Customers</h3>
+
+                <h2 id="totalCustomers">0</h2>
+
+            </div>
+
+            <div class="card">
+
+                <i class="fa-solid fa-utensils"></i>
+
+                <h3>Total Menu Items</h3>
+
+                <h2 id="totalMenu">0</h2>
+
+            </div>
+
+            <div class="card">
+                <i class="fa-solid fa-envelope"></i>
+                <h3>Contact Messages</h3>
+                <h2 id="totalContacts">0</h2>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+</html>

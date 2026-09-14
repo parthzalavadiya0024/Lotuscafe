@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LotusCafe Admin Login</title>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link rel="stylesheet" href="admin-login.css">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="forgot-popup" id="forgotPopup">
+
+    <div class="forgot-box">
+
+      <span class="close-forgot" id="closeForgot">&times;</span>
+
+      <h2>Forgot Password</h2>
+
+      <input type="email" id="forgotEmail" placeholder="Enter Registered Email">
+
+      <button id="sendOtpBtn">
+        Send OTP
+      </button>
+
+      <div id="otpSection" style="display:none; margin-top:20px;">
+      
+        <input type="text" id="otpInput" maxlength="6" placeholder="Enter 6 Digit OTP">
+      
+        <button id="verifyOtpBtn">
+          Verify OTP
+        </button>
+      
+      </div>
+
+      <div id="resetSection" style="display:none; margin-top:20px;">
+
+        <div class="admin-forgot-password-box">
+          <input type="password" id="newPassword" placeholder="Enter New Password">
+          <i class="fa-solid fa-eye admin-toggle-password"></i>
+        </div>
+        
+        <div class="admin-forgot-password-box">
+          <input type="password" id="confirmPassword" placeholder="Confirm Password">
+          <i class="fa-solid fa-eye admin-toggle-password"></i>
+        </div>
+      
+        <button id="resetPasswordBtn">
+          Reset Password
+        </button>
+      
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="login-container">
+
+    <div class="login-box">
+
+      <div class="logo">
+        <img src="../images/logo.PNG" alt="LotusCafe Logo">
+      </div>
+
+      <h2>LotusCafe Admin</h2>
+
+      <p>Login to Dashboard</p>
+
+      <form id="loginForm">
+
+        <div class="input-box">
+          <i class="fa-solid fa-user"></i>
+
+          <input type="email" id="email" placeholder="Admin Email" required>
+        </div>
+
+        <div class="input-box">
+
+          <i class="fa-solid fa-lock lock-icon"></i>
+
+          <input type="password" id="password" placeholder="Password" required>
+
+          <span id="togglePassword">
+            <i class="fa-solid fa-eye-slash"></i>
+          </span>
+
+        </div>
+
+        <div class="options">
+
+          <label>
+            <input type="checkbox">
+            Remember Me
+          </label>
+
+          <div class="forgot-password">
+            <a href="#" id="forgotLink">Forgot Password?</a>
+          </div>
+
+        </div>
+
+        <button type="submit">
+          <i class="fa-solid fa-mug-hot"></i>
+          Login
+        </button>
+
+        <div class="divider">
+          <span>LotusCafe Admin Panel</span>
+        </div>
+
+        <div id="error"></div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <script src="admin-login.js"></script>
+
+</body>
+
+</html>

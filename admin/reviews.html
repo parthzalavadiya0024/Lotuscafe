@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews | LotusCafe Admin</title>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <link rel="stylesheet" href="reviews.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+        <div class="logo">
+            <h2>LotusCafe</h2>
+            <p>Admin Panel</p>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    Dashboard
+                </a>
+            </li>
+
+            <li>
+                <a href="menu-management.html">
+                    <i class="fa-solid fa-utensils"></i>
+                    Menu
+                </a>
+            </li>
+
+            <li>
+                <a href="orders.html">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Orders
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="reviews.html">
+                    <i class="fa-solid fa-star"></i>
+                    Reviews
+                </a>
+            </li>
+
+            <li>
+                <a href="customers.html">
+                    <i class="fa-solid fa-users"></i>
+                    Customers
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html">
+                    <i class="fa-solid fa-envelope"></i>
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="settings.html">
+                    <i class="fa-solid fa-gear"></i>
+                    Settings
+                </a>
+            </li>
+
+            <li>
+                <a href="#" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+
+        <header>
+            <h1>Reviews Management</h1>
+        </header>
+
+        <div class="review-cards">
+
+            <div class="card">
+                <i class="fas fa-star"></i>
+                <h2 id="totalReviews">0</h2>
+                <p>Total Reviews</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-star-half-alt"></i>
+                <h2 id="averageRating">0</h2>
+                <p>Average Rating</p>
+            </div>
+
+            <div class="card">
+                <i class="fas fa-award"></i>
+                <h2 id="fiveStarReviews">0</h2>
+                <p>5 Star Reviews</p>
+            </div>
+
+        </div>
+
+        <!-- Review Table -->
+
+        <div class="review-table">
+
+            <div class="table-header">
+
+                <div class="search-box">
+                
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                
+                    <input type="text" id="searchReview" placeholder="Search Customer...">
+                
+                </div>
+                
+                <select id="ratingFilter">
+                    <option value="all">All Ratings</option>
+                    <option value="⭐⭐⭐⭐⭐">5 Star</option>
+                    <option value="⭐⭐⭐⭐">4 Star</option>
+                    <option value="⭐⭐⭐">3 Star</option>
+                    <option value="⭐⭐">2 Star</option>
+                    <option value="⭐">1 Star</option>
+                </select>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Customer</th>
+                        <th>Rating</th>
+                        <th>Review</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="reviewTable">
+
+                </tbody>
+
+            </table>
+
+            <div class="pagination-container">
+            
+                <button id="prevPage" class="page-btn">
+                    <i class="fa-solid fa-angle-left"></i> Previous
+                </button>
+            
+                <span id="pageInfo"></span>
+            
+                <button id="nextPage" class="page-btn">
+                    Next <i class="fa-solid fa-angle-right"></i>
+                </button>
+            
+            </div>
+
+        </div>
+
+        <!-- View Popup -->
+
+        <div class="popup" id="viewPopup">
+
+            <div class="popup-content">
+
+                <span class="close" id="closeView">&times;</span>
+
+                <h2>Review Details</h2>
+
+                <p><strong>Customer :</strong>
+                    <span id="popupCustomer"></span>
+                </p>
+
+                <p><strong>Rating :</strong>
+                    <span id="popupRating"></span>
+                </p>
+
+                <p><strong>Date :</strong>
+                    <span id="popupDate"></span>
+                </p>
+
+                <p><strong>Review :</strong></p>
+
+                <div class="review-message">
+                    <span id="popupReview"></span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Delete Popup -->
+
+        <div class="popup" id="deletePopup">
+
+            <div class="popup-content">
+
+                <h2>Delete Review</h2>
+
+                <p style="margin:20px 0;">
+                    Are you sure you want to delete this review?
+                </p>
+
+                <div style="display:flex;justify-content:flex-end;gap:10px;">
+
+                    <button id="cancelDelete" class="view-btn">
+                        Cancel
+                    </button>
+
+                    <button id="confirmDelete" class="delete-btn">
+                        Delete
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="reviews.js"></script>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lotus Cafe</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">
+            Lotus<span>Cafe <i class="fa-solid fa-mug-hot"></i></span>
+        </div>
+
+        <nav>
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#menu">Menu</a>
+            <a href="#reviews">Reviews</a>
+            <a href="#contact">Contact</a>
+
+        </nav>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+
+            <div class="icons">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <div class="wishlist-icon">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                    <span id="wishlist-count">0</span>
+
+                </div>
+
+                <div class="cart-icon">
+
+                    <i class="fa-solid fa-cart-shopping"></i>
+
+                    <span id="cart-count">0</span>
+
+                </div>
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+
+            <!-- Hamburger Button (mobile only) -->
+            <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+                <i class="fa-solid fa-bars" id="hamburgerIcon"></i>
+            </button>
+        </div>
+
+    </header>
+
+    <!-- Mobile Sidebar Nav -->
+    <div class="mobile-nav-overlay" id="mobileOverlay"></div>
+
+    <div class="mobile-sidebar" id="mobileSidebar">
+
+        <!-- Sidebar header: logo + close side by side -->
+        <div class="mobile-sidebar-header">
+
+            <div class="mobile-sidebar-logo">
+                Lotus<span>Cafe <i class="fa-solid fa-mug-hot"></i></span>
+            </div>
+
+            <button class="mobile-sidebar-close" id="closeSidebar" aria-label="Close menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+        <div class="mobile-nav">
+            <a href="#home" onclick="closeMobileMenu()">Home</a>
+            <a href="#about" onclick="closeMobileMenu()">About</a>
+            <a href="#menu" onclick="closeMobileMenu()">Menu</a>
+            <a href="#reviews" onclick="closeMobileMenu()">Reviews</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+        </div>
+
+    </div>
+
+    <!-- Search Popup -->
+
+    <div class="search-popup">
+
+        <div class="search-box">
+
+            <input type="text" id="searchInput" placeholder="Search your favourite food...">
+
+            <button id="searchBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+
+            <span id="closeSearch">&times;</span>
+
+        </div>
+
+    </div>
+
+
+    <section class="hero" id="home">
+
+        <div class="slider">
+
+            <div class="slide active" style="background-image:url('images/bg2.jpg')"></div>
+
+            <div class="slide" style="background-image:url('images/bg3.jpg')"></div>
+
+            <div class="slide" style="background-image:url('images/bg1.jpg')"></div>
+
+        </div>
+
+        <div class="overlay"></div>
+
+        <div class="content">
+
+            <h4>- WELCOME TO -</h4>
+
+            <h1>Lotus<span>Cafe</span></h1>
+
+            <h3>Relax & enjoy your coffee</h3>
+
+            <p>Experience the best coffee in town</p>
+
+            <a href="#menu" class="order-btn">Order Now</a>
+
+        </div>
+
+    </section>
+
+    <!-- ================= ABOUT SECTION ================= -->
+
+    <section class="about" id="about">
+
+        <div class="about-container">
+
+            <div class="about-images">
+
+                <img src="images/about1.jpg" alt="">
+                <img src="images/about2.jpg" alt="">
+
+            </div>
+
+            <div class="about-content">
+
+                <h4>About Us</h4>
+
+                <h2>Why Choose Us</h2>
+
+                <ul>
+
+                    <li>🌿 <span> A peaceful escape from the busy city life — where every sip tells a story.</span></li>
+
+                    <li>☕ <span>We serve freshly brewed coffee made from hand-picked premium beans, roasted to
+                            perfection
+                            every morning.</span></li>
+
+                    <li>🍽️ <span>From crispy sandwiches to wood-fired pizzas-our menu is crafted with love and the
+                            finest
+                            ingredients.</span></li>
+
+                    <li>🎵 <span>Cozy ambiance with soft music, warm lighting and a welcoming vibe -perfect for friends,
+                            family & solo visits.</span></li>
+
+                    <li>💯 <span>Fast service, honest prices, and quality you can taste in every bite & every
+                            sip.</span></li>
+
+                    <li>📍 <span>Located in the heart of surat-your new favourite hangout spot awaits!</span></li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= OUR MENU ================= -->
+
+    <section class="menu-section" id="menu">
+
+        <h2 class="menu-title">Our <span>Menu</span></h2>
+
+        <div class="menu-filter">
+
+            <button class="filter-btn active" data-filter="all">All</button>
+
+            <button class="filter-btn" data-filter="coffee">Coffee</button>
+
+            <button class="filter-btn" data-filter="pizza">Pizza</button>
+
+            <button class="filter-btn" data-filter="snacks">Snacks</button>
+
+            <button class="filter-btn" data-filter="dessert">Desserts</button>
+
+        </div>
+
+        <div class="menu-container">
+
+            <div id="menuContainer"></div>
+
+        </div>
+
+    </section>
+
+    <!--================ CUSTOMER REVIEW =================-->
+
+    <section class="review-section" id="reviews">
+
+        <div class="review-heading">
+
+            <h2>Customer <span>Reviews</span></h2>
+
+            <p>What our guests say about us ☕</p>
+
+        </div>
+
+        <div class="review-box">
+
+            <h3>Leave a Review</h3>
+
+            <div class="review-summary-new">
+
+                <div class="rating-number">
+                    <h2 id="averageRating">0.0</h2>
+                    <p>Average Rating</p>
+                </div>
+
+                <div class="rating-info">
+                    <div id="averageStars" class="summary-stars">
+                        ☆☆☆☆☆
+                    </div>
+
+                    <p id="reviewCount">
+                        <span id="reviewNumber">2</span>
+                        <span>Reviews</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <form id="reviewForm">
+
+                <input type="text" id="reviewName" placeholder="Your Name">
+
+                <div class="rating">
+
+                    <span>Rating:</span>
+
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+
+                </div>
+
+                <textarea id="reviewMessage" rows="6" placeholder="Share your experience..."></textarea>
+
+                <button type="submit">Submit Review</button>
+
+            </form>
+
+            <div class="customer-reviews" id="customerReviews">
+                <!-- Reviews JS thi automatically add thase -->
+            </div>
+
+            <div class="review-pagination" id="reviewPagination"></div>
+
+        </div>
+
+    </section>
+
+    <!--================ CONTACT SECTION ================-->
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-title">
+            <h2>Contact <span>Us</span></h2>
+        </div>
+
+        <div class="contact-container">
+
+            <!-- Left Side -->
+
+            <div class="contact-form">
+
+                <form id="contactForm">
+
+                    <input type="text" id="contactName" placeholder="Name">
+
+                    <input type="email" id="contactEmail" placeholder="Email">
+
+                    <input type="tel" id="contactPhone" placeholder="Phone">
+
+                    <textarea id="contactMessage" placeholder="Message"></textarea>
+
+                    <button type="submit">Send Message</button>
+
+                </form>
+
+            </div>
+
+            <!-- Right Side -->
+
+            <div class="contact-image">
+
+                <img src="images/contact.jpg" alt="Lotus Cafe">
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-wrapper">
+
+            <div class="footer-content">
+
+                <!-- Logo -->
+
+                <div class="footer-box">
+
+                    <h2><i class="fa-solid fa-mug-hot"></i> LotusCafe</h2>
+
+                    <p>Relax & enjoy your coffee ☕</p>
+
+                </div>
+
+                <!-- Contact -->
+
+                <div class="footer-box">
+
+                    <h3>Contact Us</h3>
+
+                    <p class="footer-contact"><i class="fa-solid fa-phone"></i> <span>+91 99521 33600</span></p>
+
+                    <p class="footer-contact"><i class="fa-solid fa-envelope"></i>
+                        <span>lotuscafeandrestro@gmail.com</span>
+                    </p>
+
+                    <p class="footer-contact" style="padding-left: 4px;"><i class="fa-solid fa-location-dot"
+                            style="margin-left:-2px;"></i>
+                        <span>Plot No.11, Near Nomads
+                            Cafe,<br>
+                            Airport Road, Dumas, Surat.</span>
+                    </p>
+
+                </div>
+
+                <!-- Social -->
+
+                <div class="footer-box">
+
+                    <h3>Follow Us</h3>
+
+                    <a href="https://instagram.com/lotuscafeandrestro" target="_blank" class="insta-btn">
+
+                        <i class="fa-brands fa-instagram" style="font-size: 14px;"></i>
+
+                        @lotuscafeandrestro
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+
+                © 2026 LotusCafe & Restro. All rights reserved.
+
+            </div>
+
+        </div>
+
+        <!-- ================= CART SIDEBAR ================= -->
+
+        <div class="cart-sidebar">
+
+            <div class="cart-header">
+
+                <h2>Your Cart</h2>
+
+                <span id="closeCart">&times;</span>
+
+            </div>
+
+            <div class="cart-scroll-area">
+            
+                <div class="order-type">
+            
+                    <button id="dineInBtn" class="order-btn active">🍽 Dine In</button>
+            
+                    <button id="takeAwayBtn" class="order-btn">🥡 Take Away</button>
+            
+                    <button id="deliveryBtn" class="order-btn">🚚 Delivery</button>
+            
+                </div>
+            
+                <div class="table-section">
+            
+                    <p>Select Table Number</p>
+            
+                    <div class="table-grid">
+            
+                        <button class="table-btn">1</button>
+                        <button class="table-btn">2</button>
+                        <button class="table-btn">3</button>
+                        <button class="table-btn">4</button>
+                        <button class="table-btn">5</button>
+            
+                        <button class="table-btn">6</button>
+                        <button class="table-btn">7</button>
+                        <button class="table-btn">8</button>
+                        <button class="table-btn">9</button>
+                        <button class="table-btn">10</button>
+            
+                    </div>
+            
+                </div>
+            
+                <div class="takeaway-time" style="display:none;">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Ready in 15–20 Minutes</span>
+                </div>
+            
+                <div class="delivery-section" style="display:none;">
+            
+                    <div class="address-box">
+                        <i class="fa-solid fa-location-dot"></i>
+            
+                        <input type="text" id="deliveryLocation" placeholder="Enter Delivery Address">
+                    </div>
+            
+                    <div class="delivery-time">
+                        <i class="fa-regular fa-clock"></i>
+                        <span>Estimated Delivery : 25–35 Minutes</span>
+                    </div>
+            
+                </div>
+            
+                <div class="cart-items">
+            
+                    <p class="empty-cart">Your cart is empty.</p>
+            
+                </div>
+            
+            </div>
+
+            <div class="cart-footer">
+
+                <div class="cart-summary">
+
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span>₹<span id="cart-subtotal">0</span></span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>GST (5%)</span>
+                        <span>₹<span id="cart-gst">0</span></span>
+                    </div>
+
+                    <div class="summary-row">
+                        <span>Delivery</span>
+                        <span>₹<span id="delivery-charge">40</span></span>
+                    </div>
+
+                    <div class="summary-row">
+
+                        <span>Discount</span>
+
+                        <span>-₹<span id="discount-price">0</span></span>
+
+                    </div>
+
+                    <hr>
+
+                    <div class="summary-row total-row">
+                        <strong>Total</strong>
+                        <strong>₹<span id="cart-total">0</span></strong>
+                    </div>
+
+                </div>
+
+                <button class="checkout-btn">
+                    Proceed to Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="wishlist-sidebar">
+
+            <div class="wishlist-header">
+
+                <h2> My Wishlist</h2>
+
+                <i class="fa-solid fa-xmark close-wishlist"></i>
+
+            </div>
+
+            <div id="wishlist-items">
+
+                <p class="empty-text">
+                    Your wishlist is empty.
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <!-- ================= CHECKOUT POPUP ================= -->
+
+    <div class="checkout-popup">
+    
+        <div class="checkout-box">
+    
+            <span id="closeCheckout">&times;</span>
+    
+            <div class="checkout-scroll-area">
+    
+                <h2>Checkout</h2>
+    
+                <input type="text" id="customerName" placeholder="Full Name">
+    
+                <input type="tel" id="customerPhone" placeholder="Phone Number">
+    
+                <div id="checkoutAddressBox">
+                    <textarea id="customerAddress" placeholder="Delivery Address"></textarea>
+                </div>
+    
+                <div class="coupon-box">
+                    <h3>Coupon Code</h3>
+    
+                    <div class="coupon-input">
+                        <input type="text" id="couponCode" placeholder="Enter Coupon">
+                        <button type="button" id="applyCoupon">Apply</button>
+                    </div>
+    
+                    <p id="couponMessage"></p>
+                </div>
+    
+                <div class="payment-method">
+                    <h3>Select Payment Method</h3>
+    
+                    <label>
+                        <input type="radio" name="payment" value="Cash" checked>
+                        <span class="payment-emoji">💵</span>
+                        Cash
+                    </label>
+    
+                    <label>
+                        <input type="radio" name="payment" value="UPI">
+                        <span class="payment-emoji">📱</span>
+                        UPI
+                    </label>
+    
+                    <label>
+                        <input type="radio" name="payment" value="Card">
+                        <span class="payment-emoji">💳</span>
+                        Card
+                    </label>
+                </div>
+    
+                <div id="paymentDetails">
+    
+                    <div id="cashPayment">
+                        <p class="payment-note">
+                            💵 You can pay by cash when your order is delivered or at the cafe.
+                        </p>
+                    </div>
+    
+                    <div id="onlinePayment" style="display:none;">
+                        <p class="payment-note">
+                            🔒 Secure payment powered by Razorpay Test Mode
+                        </p>
+                    </div>
+    
+                </div>
+    
+                <button id="placeOrderBtn">Place Order</button>
+    
+            </div>
+    
+        </div>
+    </div>
+
+    <!-- ================= LOGIN POPUP ================= -->
+
+    <div class="login-popup">
+
+        <div class="login-box">
+
+            <span id="closeLogin">&times;</span>
+
+            <div class="login-form">
+
+                <h2>Welcome Back</h2>
+
+                <input type="email" id="loginEmail" placeholder="Email">
+
+                <div class="password-box">
+                    <input type="password" id="loginPassword" placeholder="Password">
+
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+
+                <button id="loginBtn">Login</button>
+
+                <p class="forgot-link">
+                    <a href="#" id="forgotPasswordLink">Forgot Password?</a>
+                </p>
+
+                <p>
+                    Don't have an account?
+                    <span id="showRegister">Register</span>
+                </p>
+
+            </div>
+
+            <div class="register-form">
+
+                <h2>Create Account</h2>
+
+                <input type="text" id="regName" placeholder="Full Name">
+
+                <input type="email" id="regEmail" placeholder="Email">
+
+                <input type="tel" id="regPhone" placeholder="Phone Number" maxlength="10" />
+
+                <div class="password-box">
+                    <input type="password" id="regPassword" placeholder="Password">
+
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+
+                <div class="password-box">
+                    <input type="password" id="regConfirm" placeholder="Confirm Password">
+
+                    <i class="fa-solid fa-eye toggle-password"></i>
+                </div>
+
+                <button id="registerBtn">Create Account</button>
+
+                <p>
+                    Already have an account?
+                    <span id="showLogin">Login</span>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ================= USER EMAIL POPUP ================= -->
+
+    <div class="email-popup popup" id="emailPopup">
+
+        <div class="popup-box">
+
+            <span class="close-popup" id="closeEmailPopup">&times;</span>
+
+            <h2>Forgot Password</h2>
+
+            <p>Enter your registered email</p>
+
+            <input type="email" id="forgotEmail" placeholder="Registered Email">
+
+            <button id="sendOtpBtn">
+                Send OTP
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= OTP POPUP ================= -->
+
+    <div class="otp-popup popup" id="otpPopup">
+
+        <div class="popup-box">
+
+            <span class="close-popup" id="closeOtpPopup">&times;</span>
+
+            <h2>Verify OTP</h2>
+
+            <p>Enter OTP sent to your email</p>
+
+            <input type="text" id="forgotOtp" placeholder="Enter OTP">
+
+            <button id="verifyOtpBtn">
+                Verify OTP
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- ================= RESET PASSWORD POPUP ================= -->
+
+    <div class="reset-popup popup" id="resetPopup">
+
+        <div class="popup-box">
+
+            <span class="close-popup" id="closeResetPopup">&times;</span>
+
+            <h2>Reset Password</h2>
+
+            <div class="forgot-password-box">
+                <input type="password" id="forgotNewPassword" placeholder="New Password">
+                <i class="fa-solid fa-eye toggle-password"></i>
+            </div>
+
+            <div class="forgot-password-box">
+                <input type="password" id="forgotConfirmPassword" placeholder="Confirm Password">
+                <i class="fa-solid fa-eye toggle-password"></i>
+            </div>
+
+            <button id="resetPasswordBtn">
+                Reset Password
+            </button>
+
+        </div>
+
+    </div>
+
+    <!--================ TOAST NOTIFICATION ================-->
+
+    <div id="toast"></div>
+
+    <!-- ================= ORDER SUCCESS POPUP ================= -->
+
+    <div class="success-popup">
+
+        <div class="success-box">
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            <h2>Order Confirmed!</h2>
+
+            <p>Thank you for ordering from <b>Lotus Cafe ☕</b></p>
+
+            <h3 id="orderId"></h3>
+
+            <button id="continueShopping">
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </div>
+
+    <!--================ INVOICE POPUP =================-->
+
+    <div class="invoice-popup">
+
+        <div class="invoice-box">
+
+            <span id="closeInvoice">&times;</span>
+
+            <h2>Lotus Cafe</h2>
+
+            <h3 id="invoiceOrderId"></h3>
+
+            <hr>
+
+            <div id="invoiceItems"></div>
+
+            <hr>
+
+            <div class="invoice-row">
+                <span>Subtotal</span>
+                <span id="invoiceSubtotal">₹0</span>
+            </div>
+
+            <div class="invoice-row">
+                <span>GST</span>
+                <span id="invoiceGST">₹0</span>
+            </div>
+
+            <div class="invoice-row">
+                <span>Delivery</span>
+                <span id="invoiceDelivery">₹0</span>
+            </div>
+
+            <div class="invoice-row">
+                <span>Discount</span>
+                <span id="invoiceDiscount">₹0</span>
+            </div>
+
+            <hr>
+
+            <div class="invoice-row total">
+                <strong>Total</strong>
+                <strong id="invoiceTotal">₹0</strong>
+            </div>
+
+            <hr>
+
+            <p id="invoicePayment"></p>
+
+            <button id="printBill">
+                🖨 Print Bill
+            </button>
+
+            <button id="continueShoppingInvoice">
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="profile-popup">
+        <div class="profile-box">
+    
+            <span id="closeProfile">&times;</span>
+    
+            <div class="profile-content">
+    
+                <h2>My Profile</h2>
+    
+                <label>Name</label>
+                <input type="text" id="profileName">
+    
+                <label>Email</label>
+                <input type="email" id="profileEmail">
+    
+                <label>Phone</label>
+                <input type="tel" id="profilePhone" placeholder="Phone Number" maxlength="10">
+    
+                <button id="saveProfileBtn">Save Changes</button>
+    
+                <button id="changePasswordBtn">Change Password</button>
+    
+                <div id="changePasswordBox" style="display:none;">
+                    <div class="password-box">
+                        <input type="password" id="currentPassword" placeholder="Current Password">
+                        <i class="fa-solid fa-eye toggle-password"></i>
+                    </div>
+    
+                    <div class="password-box">
+                        <input type="password" id="newPassword" placeholder="New Password">
+                        <i class="fa-solid fa-eye toggle-password"></i>
+                    </div>
+    
+                    <div class="password-box">
+                        <input type="password" id="confirmNewPassword" placeholder="Confirm New Password">
+                        <i class="fa-solid fa-eye toggle-password"></i>
+                    </div>
+    
+                    <button id="updatePasswordBtn">Update Password</button>
+                </div>
+    
+            </div>
+    
+        </div>
+    </div>
+
+    <!-- ================= Order History Popup ================= -->
+
+    <div class="order-history-popup" id="orderHistoryPopup">
+
+        <div class="order-history-box">
+
+            <span id="closeOrderHistory">&times;</span>
+
+            <h2>My Orders</h2>
+
+            <div id="orderHistoryList">
+
+                <p>No Orders Found.</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- Hamburger / Mobile Sidebar -->
+    <script>
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobileSidebar = document.getElementById('mobileSidebar');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+
+        function openMobileMenu() {
+            hamburgerBtn.classList.add('open');
+            mobileSidebar.classList.add('active');
+            mobileOverlay.classList.add('active');
+            hamburgerIcon.classList.replace('fa-bars', 'fa-xmark');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            hamburgerBtn.classList.remove('open');
+            mobileSidebar.classList.remove('active');
+            mobileOverlay.classList.remove('active');
+            hamburgerIcon.classList.replace('fa-xmark', 'fa-bars');
+            document.body.style.overflow = '';
+        }
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileSidebar.classList.contains('active') ? closeMobileMenu() : openMobileMenu();
+        });
+
+        document.getElementById('closeSidebar').addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+
+        // Close sidebar on window resize above breakpoint
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 991) closeMobileMenu();
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders Management | LotusCafe Admin</title>
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <link rel="stylesheet" href="Orders.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="dashboard">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <div class="logo">
+        <h2>LotusCafe</h2>
+        <p>Admin Panel</p>
+      </div>
+
+      <ul>
+
+        <li>
+          <a href="dashboard.html">
+            <i class="fa-solid fa-house"></i>
+            Dashboard
+          </a>
+        </li>
+
+        <li>
+          <a href="menu-management.html">
+            <i class="fa-solid fa-utensils"></i>
+            Menu
+          </a>
+        </li>
+        
+        <li class="active">
+          <a href="orders.html">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Orders
+          </a>
+        </li>   
+
+        <li>
+          <a href="reviews.html">
+            <i class="fa-solid fa-star"></i>
+            Reviews
+          </a>
+        </li>
+
+        <li>
+          <a href="customers.html">
+            <i class="fa-solid fa-users"></i>
+            Customers
+          </a>
+        </li>
+
+        <li>
+          <a href="contact.html">
+            <i class="fa-solid fa-envelope"></i>
+            Contact
+          </a>
+        </li>
+
+        <li>
+          <a href="settings.html">
+            <i class="fa-solid fa-gear"></i>
+            Settings
+          </a>
+        </li>
+
+        <li>
+          <a href="#" id="logoutBtn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            Logout
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+
+    <!-- Main Content -->
+    
+    <div class="main-content">
+    
+      <header>
+    
+        <h1>Orders Management</h1>
+    
+        <button class="add-btn">
+          <i class="fa-solid fa-eye"></i>
+          View Orders
+        </button>
+    
+      </header>
+    
+      <div class="order-cards">
+    
+        <div class="order-card">
+    
+          <i class="fa-solid fa-cart-shopping"></i>
+    
+          <h3>Total Orders</h3>
+    
+          <h2 id="totalOrders">0</h2>
+    
+        </div>
+    
+        <div class="order-card">
+    
+          <i class="fa-solid fa-hourglass-half"></i>
+    
+          <h3>Pending Orders</h3>
+    
+          <h2 id="pendingOrders">0</h2>
+    
+        </div>
+    
+        <div class="order-card">
+    
+          <i class="fa-solid fa-truck"></i>
+    
+          <h3>Delivered</h3>
+    
+          <h2 id="deliveredOrders">0</h2>
+    
+        </div>
+    
+        <div class="order-card">
+    
+          <i class="fa-solid fa-indian-rupee-sign"></i>
+    
+          <h3>Today's Revenue</h3>
+    
+          <h2 id="todayRevenue">₹0</h2>
+    
+        </div>
+    
+      </div>
+
+      <div class="table-container">
+      
+        <div class="order-top">
+      
+          <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchOrder" placeholder="Search Order...">
+          </div>
+      
+          <select id="statusFilter">
+      
+            <option value="all">All Orders</option>
+            <option value="Pending">Pending</option>
+            <option value="Preparing">Preparing</option>
+            <option value="Ready">Ready</option>
+            <option value="Delivered">Delivered</option>
+            <option value="Cancelled">Cancelled</option>
+      
+          </select>
+      
+        </div>
+      
+        <table>
+      
+          <thead>
+      
+            <tr>
+      
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Items</th>
+              <th>Total</th>
+              <th>Payment</th>
+              <th>Status</th>
+              <th>Action</th>
+      
+            </tr>
+      
+          </thead>
+      
+          <tbody id="ordersTable">
+      
+          </tbody>
+      
+        </table>
+
+        <div class="pagination-container">
+        
+          <button id="prevPage" class="page-btn">
+            <i class="fa-solid fa-angle-left"></i> Previous
+          </button>
+        
+          <span id="pageInfo"></span>
+        
+          <button id="nextPage" class="page-btn">
+            Next <i class="fa-solid fa-angle-right"></i>
+          </button>
+        
+        </div>
+      
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- View Order Popup -->
+  
+  <div class="popup" id="viewPopup">
+  
+    <div class="popup-box">
+  
+      <h2>Order Details</h2>
+  
+      <div class="order-details">
+  
+        <p><strong>Order ID :</strong> <span id="popupOrderId"></span></p>
+  
+        <p><strong>Customer :</strong> <span id="popupCustomer"></span></p>
+  
+        <p><strong>Phone :</strong> <span id="popupPhone"></span></p>
+  
+        <p><strong>Address :</strong> <span id="popupAddress"></span></p>
+  
+        <hr>
+  
+        <p><strong>Items :</strong> <span id="popupItems"></span></p>
+  
+        <hr>
+  
+        <p><strong>Subtotal :</strong> ₹<span id="popupSubtotal"></span></p>
+        
+        <p><strong>GST :</strong> ₹<span id="popupGST"></span></p>
+        
+        <p><strong>Discount :</strong> ₹<span id="popupDiscount"></span></p>
+  
+        <p><strong>Total :</strong> <span id="popupTotal"></span></p>
+  
+        <p><strong>Payment :</strong> <span id="popupPayment"></span></p>
+  
+        <p><strong>Status :</strong> <span id="popupStatus"></span></p>
+  
+      </div>
+  
+      <button id="closeView">Close</button>
+  
+    </div>
+  
+  </div>
+
+  <!-- Delete Popup -->
+  
+  <div class="popup" id="deletePopup">
+  
+    <div class="popup-box">
+  
+      <h2>Delete Order</h2>
+  
+      <p style="margin:20px 0;">
+        Are you sure you want to delete this order?
+      </p>
+  
+      <div class="popup-buttons">
+  
+        <button id="yesDelete">Yes</button>
+  
+        <button id="noDelete">No</button>
+  
+      </div>
+  
+    </div>
+  
+  </div>
+
+  <script src="Orders.js"></script>
+
+</body>
+
+</html>
