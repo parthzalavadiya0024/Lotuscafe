@@ -488,7 +488,7 @@ registerBtn.addEventListener("click", () => {
         return;
     }
 
-    fetch("http://localhost:5000/api/auth/register", {
+    fetch("https://lotuscafe.onrender.com/api/auth/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -538,7 +538,7 @@ loginBtn.addEventListener("click", async () => {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch("https://lotuscafe.onrender.com/api/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -647,7 +647,7 @@ document.getElementById("sendOtpBtn").addEventListener("click", async () => {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/auth/send-otp", {
+        const res = await fetch("https://lotuscafe.onrender.com/api/auth/send-otp", {
 
             method: "POST",
 
@@ -699,7 +699,7 @@ document.getElementById("verifyOtpBtn").addEventListener("click", async () => {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/auth/verify-otp", {
+        const res = await fetch("https://lotuscafe.onrender.com/api/auth/verify-otp", {
 
             method: "POST",
 
@@ -768,7 +768,7 @@ document.getElementById("resetPasswordBtn").addEventListener("click", async () =
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/auth/reset-password", {
+        const res = await fetch("https://lotuscafe.onrender.com/api/auth/reset-password", {
 
             method: "POST",
 
@@ -906,7 +906,7 @@ function createUserMenu(savedUser) {
 
         try {
 
-            const response = await fetch("http://localhost:5000/api/auth/me", {
+            const response = await fetch("https://lotuscafe.onrender.com/api/auth/me", {
                 headers: {
                     Authorization: "Bearer " + token
                 }
@@ -959,7 +959,7 @@ function createUserMenu(savedUser) {
 
         try {
 
-            const response = await fetch("http://localhost:5000/api/auth/update-profile", {
+            const response = await fetch("https://lotuscafe.onrender.com/api/auth/update-profile", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -1060,7 +1060,7 @@ function createUserMenu(savedUser) {
 
         try {
 
-            const response = await fetch("http://localhost:5000/api/auth/change-password", {
+            const response = await fetch("https://lotuscafe.onrender.com/api/auth/change-password", {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -1526,7 +1526,7 @@ placeOrderBtn.addEventListener("click", () => {
 
     let total = subtotal - discount + gst + delivery;
 
-    fetch("http://localhost:5000/api/orders/place", {
+    fetch("https://lotuscafe.onrender.com/api/orders/place", {
 
         method: "POST",
 
@@ -1909,7 +1909,7 @@ reviewSubmit.addEventListener("click", async function (e) {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/reviews/add", {
+        const response = await fetch("https://lotuscafe.onrender.com/api/reviews/add", {
 
             method: "POST",
 
@@ -1962,7 +1962,7 @@ async function loadReviews() {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/reviews/all");
+        const response = await fetch("https://lotuscafe.onrender.com/api/reviews/all");
 
         const data = await response.json();
 
@@ -2166,7 +2166,7 @@ contactForm.addEventListener("submit", async function (e) {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/contact/send", {
+        const response = await fetch("https://lotuscafe.onrender.com/api/contact/send", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -2257,7 +2257,7 @@ async function startRazorpayPayment(
         /* STEP 1: Create Razorpay Order */
 
         const response = await fetch(
-            "http://localhost:5000/api/payment/create-order",
+            "https://lotuscafe.onrender.com/api/payment/create-order",
             {
                 method: "POST",
 
@@ -2330,7 +2330,7 @@ async function startRazorpayPayment(
                 try {
 
                     const verifyResponse = await fetch(
-                        "http://localhost:5000/api/payment/verify-payment",
+                        "https://lotuscafe.onrender.com/api/payment/verify-payment",
                         {
                             method: "POST",
 
@@ -2462,7 +2462,7 @@ async function loadOrderHistory() {
     try {
 
         // Logged in user
-        const userRes = await fetch("http://localhost:5000/api/auth/me", {
+        const userRes = await fetch("https://lotuscafe.onrender.com/api/auth/me", {
             headers: {
                 Authorization: "Bearer " + token
             }
@@ -2477,7 +2477,7 @@ async function loadOrderHistory() {
 
         // User orders
         const orderRes = await fetch(
-            `http://localhost:5000/api/orders/user/${userData.user.phone}`
+            `https://lotuscafe.onrender.com/api/orders/user/${userData.user.phone}`
         );
 
         const orderData = await orderRes.json();
@@ -2563,7 +2563,7 @@ window.addEventListener("load", async () => {
 
     try {
 
-        const response = await fetch("http://localhost:5000/api/auth/me", {
+        const response = await fetch("https://lotuscafe.onrender.com/api/auth/me", {
             headers: {
                 Authorization: "Bearer " + token
             }
@@ -2601,7 +2601,7 @@ async function syncMenuFromDatabase() {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/menu");
+        const res = await fetch("https://lotuscafe.onrender.com/api/menu");
 
         const data = await res.json();
 
