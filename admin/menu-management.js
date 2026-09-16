@@ -76,7 +76,7 @@ async function loadMenuItems() {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/menu");
+        const res = await fetch("https://lotuscafe.onrender.com/api/menu");
 
         const data = await res.json();
 
@@ -191,7 +191,7 @@ saveBtn.addEventListener("click", async () => {
 
             
 
-            const res = await fetch(`http://localhost:5000/api/menu/${editId}`, {
+            const res = await fetch(`https://lotuscafe.onrender.com/api/menu/${editId}`, {
 
                 method: "PUT",
 
@@ -273,7 +273,7 @@ saveBtn.addEventListener("click", async () => {
                 formData.append("image", imageFile);
             }
 
-            const res = await fetch("http://localhost:5000/api/menu/add", {
+            const res = await fetch("https://lotuscafe.onrender.com/api/menu/add", {
                 method: "POST",
                 body: formData
             });
@@ -324,7 +324,7 @@ menuTable.addEventListener("click", async (e) => {
 
     try {
 
-        const res = await fetch(`http://localhost:5000/api/menu/${id}`, {
+        const res = await fetch(`https://lotuscafe.onrender.com/api/menu/${id}`, {
             method: "DELETE"
         });
 
@@ -377,7 +377,7 @@ menuTable.addEventListener("click", async (e) => {
         // File input clear karo
         document.getElementById("image").value = "";
 
-        const res = await fetch(`http://localhost:5000/api/menu/${editId}`);
+        const res = await fetch(`https://lotuscafe.onrender.com/api/menu/${editId}`);
         const data = await res.json();
 
         if (data.success) {
