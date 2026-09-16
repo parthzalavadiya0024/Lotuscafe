@@ -25,7 +25,7 @@ async function loadAdminProfile() {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/admin/profile");
+        const res = await fetch("https://lotuscafe.onrender.com/api/admin/profile");
         const data = await res.json();
 
         if (!data.success) {
@@ -58,7 +58,7 @@ saveBtn.addEventListener("click", async () => {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/admin/profile", {
+        const res = await fetch("https://lotuscafe.onrender.com/api/admin/profile", {
 
             method: "PUT",
 
@@ -128,7 +128,7 @@ saveBtn.addEventListener("click", async () => {
 
         }
 
-        const res = await fetch("http://localhost:5000/api/admin/change-password", {
+        const res = await fetch("https://lotuscafe.onrender.com/api/admin/change-password", {
 
             method: "PUT",
 
