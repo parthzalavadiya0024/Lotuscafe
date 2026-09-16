@@ -37,7 +37,7 @@ yesDelete.addEventListener("click", async () => {
         const id = selectedRow.dataset.id;
 
         const res = await fetch(
-            `http://localhost:5000/api/orders/${id}`,
+            `https://lotuscafe.onrender.com/api/orders/${id}`,
             {
                 method: "DELETE"
             }
@@ -77,7 +77,7 @@ async function loadOrders() {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/orders/all");
+        const res = await fetch("https://lotuscafe.onrender.com/api/orders/all");
 
         const data = await res.json();
 
@@ -207,7 +207,7 @@ tableBody.addEventListener("change", async (e) => {
     try {
 
         const res = await fetch(
-            `http://localhost:5000/api/orders/status/${id}`,
+            `https://lotuscafe.onrender.com/api/orders/status/${id}`,
             {
                 method: "PUT",
                 headers: {
