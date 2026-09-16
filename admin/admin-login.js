@@ -24,7 +24,7 @@ form.addEventListener("submit", async function (e) {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/admin/login", {
+        const res = await  fetch("https://lotuscafe.onrender.com/api/admin/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -95,7 +95,7 @@ sendOtpBtn.addEventListener("click", async function () {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/admin/send-otp", {
+        const res = await fetch("https://lotuscafe.onrender.com/api/admin/send-otp", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -146,7 +146,7 @@ verifyOtpBtn.addEventListener("click", async function () {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/admin/verify-otp", {
+        const res = await fetch("https://lotuscafe.onrender.com/api/admin/verify-otp", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -208,7 +208,7 @@ resetPasswordBtn.addEventListener("click", async function () {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/admin/reset-password", {
+        const res = await fetch("https://lotuscafe.onrender.com/api/admin/reset-password", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

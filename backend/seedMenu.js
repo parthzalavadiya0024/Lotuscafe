@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const MenuItem = require("./models/MenuItem");
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/lotus_cafe_restro")
+  .connect(process.env.MONGO_URI)
   .then(async () => {
     console.log("✅ MongoDB Connected");
 
