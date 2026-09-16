@@ -235,7 +235,7 @@ async function loadContacts() {
 
     try {
 
-        const res = await fetch("http://localhost:5000/api/contact/all");
+        const res = await fetch("https://lotuscafe.onrender.com/api/contact/all");
 
         const data = await res.json();
 
@@ -331,7 +331,7 @@ confirmDelete.onclick = async () => {
 
         const id = selectedRow.dataset.id;
 
-        const res = await fetch(`http://localhost:5000/api/contact/${id}`, {
+        const res = await fetch(`https://lotuscafe.onrender.com/api/contact/${id}`, {
             method: "DELETE"
         });
 
