@@ -47,7 +47,7 @@ confirmDelete.onclick = async () => {
 
         const id = selectedRow.dataset.id;
 
-        const res = await fetch(`http://localhost:5000/api/users/${id}`, {
+        const res = await fetch(`https://lotuscafe.onrender.com/api/users/${id}`, {
             method: "DELETE"
         });
 
@@ -129,8 +129,8 @@ async function loadCustomers() {
     try {
 
         const [userRes, orderRes] = await Promise.all([
-    fetch("http://localhost:5000/api/users"),
-    fetch("http://localhost:5000/api/orders/all")
+    fetch("https://lotuscafe.onrender.com/api/users"),
+    fetch("https://lotuscafe.onrender.com/api/orders/all")
 ]);
 
 const data = await userRes.json();
