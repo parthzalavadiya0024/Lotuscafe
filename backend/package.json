@@ -21,7 +21,8 @@
     "multer": "^2.4.0",
     "nodemailer": "^10.0.10",
     "open": "^11.0.3",
-    "razorpay": "^2.9.8"
+    "razorpay": "^2.9.8",
+    "resend": "^6.28.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
