@@ -704,7 +704,7 @@ table tbody td:last-child .delete-btn {
 }
 
 /* ===== MOBILE REVIEW ACTION - LEFT ALIGN ===== */
-@media (max-width: 1024px)
+@media (max-width: 1024px){
 
     table tbody td:nth-child(5) {
         display: flex !important;
@@ -721,5 +721,20 @@ table tbody td:last-child .delete-btn {
     table tbody td:nth-child(5)::before {
         margin-right: 3px !important;
         margin-bottom: 0 !important;
+    }
+}
+
+@media (max-width: 1024px) {
+    table tbody td:nth-child(5) {
+        justify-content: flex-start !important;
+        align-items: center !important;
+        text-align: left !important;
+        padding-left: 0 !important;
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+
+    table tbody td:nth-child(5)::before {
+        margin-left: 0 !important;
     }
 }
