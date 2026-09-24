@@ -684,7 +684,7 @@ table tbody td:last-child {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content:  flex-start !important;
     gap: 4px !important;
     white-space: nowrap !important;
 }
@@ -703,3 +703,23 @@ table tbody td:last-child .delete-btn {
     padding: 0 !important;
 }
 
+/* ===== MOBILE REVIEW ACTION - LEFT ALIGN ===== */
+@media (max-width: 1024px)
+
+    table tbody td:nth-child(5) {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding-left: 0 !important;
+        gap: 8px !important;
+    }
+
+    table tbody td:nth-child(5)::before {
+        margin-right: 3px !important;
+        margin-bottom: 0 !important;
+    }
+}
