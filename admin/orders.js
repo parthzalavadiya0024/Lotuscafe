@@ -400,3 +400,54 @@ nextPage.addEventListener("click", () => {
     }
 
 });
+
+/* =========================================
+   ORDER POPUP - BACKGROUND SCROLL LOCK
+   ========================================= */
+
+let orderPopupScrollY = 0;
+
+function lockOrderPopupScroll() {
+
+    orderPopupScrollY = window.scrollY;
+
+    document.documentElement.classList.add("order-popup-open");
+    document.body.classList.add("order-popup-open");
+
+    document.body.style.top = `-${orderPopupScrollY}px`;
+}
+
+function unlockOrderPopupScroll() {
+
+    document.documentElement.classList.remove("order-popup-open");
+    document.body.classList.remove("order-popup-open");
+
+    document.body.style.top = "";
+
+    window.scrollTo(0, orderPopupScrollY);
+}
+
+
+/* Watch Order Details Popup */
+const orderViewPopup = document.getElementById("viewPopup");
+
+if (orderViewPopup) {
+
+    const orderPopupObserver = new MutationObserver(() => {
+
+        const isOpen =
+            getComputedStyle(orderViewPopup).display !== "none";
+
+        if (isOpen) {
+            lockOrderPopupScroll();
+        } else {
+            unlockOrderPopupScroll();
+        }
+
+    });
+
+    orderPopupObserver.observe(orderViewPopup, {
+        attributes: true,
+        attributeFilter: ["style", "class"]
+    });
+}

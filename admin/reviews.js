@@ -308,3 +308,60 @@ nextPage.addEventListener("click", () => {
 
 });
 
+// ===== REVIEW POPUP BACKGROUND SCROLL LOCK =====
+
+let reviewPopupScrollY = 0;
+
+const reviewPopups = [
+    document.getElementById("viewPopup"),
+    document.getElementById("deletePopup")
+];
+
+function lockReviewPopupScroll() {
+
+    reviewPopupScrollY = window.scrollY;
+
+    document.documentElement.classList.add("review-popup-open");
+    document.body.classList.add("review-popup-open");
+
+    document.body.style.top = `-${reviewPopupScrollY}px`;
+}
+
+function unlockReviewPopupScroll() {
+
+    document.documentElement.classList.remove("review-popup-open");
+    document.body.classList.remove("review-popup-open");
+
+    document.body.style.top = "";
+
+    window.scrollTo(0, reviewPopupScrollY);
+}
+
+function checkReviewPopupScroll() {
+
+    const anyPopupOpen = reviewPopups.some(popup =>
+        popup && getComputedStyle(popup).display !== "none"
+    );
+
+    if (anyPopupOpen) {
+        lockReviewPopupScroll();
+    } else {
+        unlockReviewPopupScroll();
+    }
+}
+
+reviewPopups.forEach(popup => {
+
+    if (!popup) return;
+
+    const observer = new MutationObserver(() => {
+        checkReviewPopupScroll();
+    });
+
+    observer.observe(popup, {
+        attributes: true,
+        attributeFilter: ["style", "class"]
+    });
+
+});
+

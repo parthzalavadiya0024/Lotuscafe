@@ -256,3 +256,55 @@ nextPage.addEventListener("click", () => {
     }
 
 });
+
+/* =========================================
+   CUSTOMER POPUP - BACKGROUND SCROLL LOCK
+   ========================================= */
+
+let customerPopupScrollY = 0;
+
+function lockCustomerPopupScroll() {
+    customerPopupScrollY = window.scrollY;
+
+    document.documentElement.classList.add("customer-popup-open");
+    document.body.classList.add("customer-popup-open");
+
+    document.body.style.top = `-${customerPopupScrollY}px`;
+}
+
+function unlockCustomerPopupScroll() {
+    document.documentElement.classList.remove("customer-popup-open");
+    document.body.classList.remove("customer-popup-open");
+
+    document.body.style.top = "";
+
+    window.scrollTo(0, customerPopupScrollY);
+}
+
+const customerPopups = [
+    document.getElementById("viewPopup"),
+    document.getElementById("deletePopup")
+];
+
+customerPopups.forEach(popup => {
+
+    if (!popup) return;
+
+    const observer = new MutationObserver(() => {
+
+        const isOpen =
+            getComputedStyle(popup).display !== "none";
+
+        if (isOpen) {
+            lockCustomerPopupScroll();
+        } else {
+            unlockCustomerPopupScroll();
+        }
+
+    });
+
+    observer.observe(popup, {
+        attributes: true,
+        attributeFilter: ["style", "class"]
+    });
+});

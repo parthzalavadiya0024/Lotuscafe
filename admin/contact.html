@@ -420,6 +420,58 @@ nextPage.addEventListener("click", () => {
 
 });
 
+/* =========================================
+   CONTACT POPUP - BACKGROUND SCROLL LOCK
+   ========================================= */
+
+let contactPopupScrollY = 0;
+
+function lockContactPopupScroll() {
+    contactPopupScrollY = window.scrollY;
+
+    document.documentElement.classList.add("contact-popup-open");
+    document.body.classList.add("contact-popup-open");
+
+    document.body.style.top = `-${contactPopupScrollY}px`;
+}
+
+function unlockContactPopupScroll() {
+    document.documentElement.classList.remove("contact-popup-open");
+    document.body.classList.remove("contact-popup-open");
+
+    document.body.style.top = "";
+
+    window.scrollTo(0, contactPopupScrollY);
+}
+
+const contactPopups = [
+    document.getElementById("viewPopup"),
+    document.getElementById("deletePopup")
+];
+
+contactPopups.forEach(popup => {
+
+    if (!popup) return;
+
+    const observer = new MutationObserver(() => {
+
+        const isOpen =
+            getComputedStyle(popup).display !== "none";
+
+        if (isOpen) {
+            lockContactPopupScroll();
+        } else {
+            unlockContactPopupScroll();
+        }
+
+    });
+
+    observer.observe(popup, {
+        attributes: true,
+        attributeFilter: ["style", "class"]
+    });
+});
+
 
 </script>
 

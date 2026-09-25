@@ -130,17 +130,42 @@ async function loadMenuItems() {
 
 }
 
+let menuPopupScrollY = 0;
+
+function lockMenuPopupScroll() {
+    menuPopupScrollY = window.scrollY;
+
+    document.documentElement.classList.add("menu-popup-open");
+    document.body.classList.add("menu-popup-open");
+
+    document.body.style.top = `-${menuPopupScrollY}px`;
+}
+
+function unlockMenuPopupScroll() {
+    document.documentElement.classList.remove("menu-popup-open");
+    document.body.classList.remove("menu-popup-open");
+
+    document.body.style.top = "";
+
+    window.scrollTo(0, menuPopupScrollY);
+}
+
+
 // Open Popup
 addBtn.addEventListener("click", () => {
-
     updatePriceFields();
 
     popup.style.display = "flex";
+
+    lockMenuPopupScroll();
 });
+
 
 // Close Popup
 closeBtn.addEventListener("click", () => {
     popup.style.display = "none";
+
+    unlockMenuPopupScroll();
 });
 
 // Save Item
@@ -399,6 +424,7 @@ menuTable.addEventListener("click", async (e) => {
         }
 
         popup.style.display = "flex";
+        lockMenuPopupScroll();
 
     }
 
@@ -450,3 +476,127 @@ categorySelect.addEventListener("change", updatePriceFields);
 updatePriceFields();
 
 loadMenuItems();
+
+/* =========================================
+   CUSTOM DROPDOWN FOR POPUP SELECTS
+   ========================================= */
+
+function createCustomDropdown(select) {
+
+    if (select.dataset.customized === "true") {
+        return;
+    }
+
+    select.dataset.customized = "true";
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "custom-dropdown";
+
+    const selected = document.createElement("div");
+    selected.className = "custom-dropdown-selected";
+
+    const optionsBox = document.createElement("div");
+    optionsBox.className = "custom-dropdown-options";
+
+    select.parentNode.insertBefore(wrapper, select);
+    wrapper.appendChild(selected);
+    wrapper.appendChild(optionsBox);
+
+    wrapper.appendChild(select);
+
+    /* Hide original select */
+    select.style.display = "none";
+
+    function refreshDropdown() {
+
+        const selectedOption =
+            select.options[select.selectedIndex];
+
+        selected.textContent =
+            selectedOption ? selectedOption.textContent : "";
+
+        optionsBox.innerHTML = "";
+
+        Array.from(select.options).forEach(option => {
+
+            const optionDiv =
+                document.createElement("div");
+
+            optionDiv.className =
+                "custom-dropdown-option";
+
+            optionDiv.textContent =
+                option.textContent;
+
+            if (option.selected) {
+                optionDiv.classList.add("active");
+            }
+
+            optionDiv.addEventListener("click", function (e) {
+
+                e.stopPropagation();
+
+                select.value = option.value;
+
+                select.dispatchEvent(
+                    new Event("change", { bubbles: true })
+                );
+
+                refreshDropdown();
+
+                wrapper.classList.remove("open");
+            });
+
+            optionsBox.appendChild(optionDiv);
+        });
+    }
+
+    selected.addEventListener("click", function (e) {
+
+        e.stopPropagation();
+
+        /* Close other dropdowns */
+        document
+            .querySelectorAll(".custom-dropdown.open")
+            .forEach(dropdown => {
+
+                if (dropdown !== wrapper) {
+                    dropdown.classList.remove("open");
+                }
+
+            });
+
+        wrapper.classList.toggle("open");
+    });
+
+    select.addEventListener("change", refreshDropdown);
+
+    refreshDropdown();
+}
+
+
+/* Create custom dropdowns inside popup */
+function initializeCustomDropdowns() {
+
+    document
+        .querySelectorAll(".popup-box select")
+        .forEach(select => {
+            createCustomDropdown(select);
+        });
+}
+
+
+/* Close dropdown when clicking outside */
+document.addEventListener("click", function () {
+
+    document
+        .querySelectorAll(".custom-dropdown.open")
+        .forEach(dropdown => {
+            dropdown.classList.remove("open");
+        });
+
+});
+
+
+/* Initialize */
+initializeCustomDropdowns();

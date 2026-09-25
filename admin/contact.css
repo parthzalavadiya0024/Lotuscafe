@@ -192,8 +192,82 @@ tbody td{
 
 }
 
+/* ===== CONTACT 1024px ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .main-content {
+        padding: 20px !important;
+    }
+
+    .table-container {
+        padding: 12px !important;
+        overflow: hidden !important;
+    }
+
+    table {
+        width: 100% !important;
+        table-layout: fixed !important;
+    }
+
+    thead th,
+    tbody td {
+        padding: 10px 5px !important;
+        font-size: 12px !important;
+        text-align: center !important;
+        vertical-align: middle !important;
+    }
+
+    /* Name */
+th:nth-child(1),
+td:nth-child(1) {
+    width: 17%;
+}
+
+/* Email */
+th:nth-child(2),
+td:nth-child(2) {
+    width: 30%;
+}
+
+/* Phone */
+th:nth-child(3),
+td:nth-child(3) {
+    width: 16%;
+}
+
+/* Message */
+th:nth-child(4),
+td:nth-child(4) {
+    width: 14%;
+}
+
+/* Date */
+th:nth-child(5),
+td:nth-child(5) {
+    width: 9%;
+}
 
 
+
+/* Action */
+th:nth-child(6),
+td:nth-child(6) {
+    width: 14% !important;
+    text-align: center !important;
+    vertical-align: middle !important;
+    white-space: nowrap !important;
+    display: table-cell !important;
+}
+
+td:nth-child(6) button {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 30px !important;
+    height: 30px !important;
+    padding: 0 !important;
+    margin: 0 2px !important;
+}
 /* ===== Search Box ===== */
 
 .table-header{
@@ -349,12 +423,7 @@ tbody td{
     background:#bb2d3b;
 }
 
-td:last-child{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4px;
-}
+
 
 td:last-child button{
     width: 35px;
@@ -947,4 +1016,21 @@ tbody tr{
     .pagination-container #nextPage {
         order: 3 !important;
     }
+}
+
+/* =========================================
+   CONTACT POPUP - LOCK BACKGROUND SCROLL
+   ========================================= */
+
+html.contact-popup-open,
+body.contact-popup-open {
+    overflow: hidden !important;
+    height: 100% !important;
+}
+
+body.contact-popup-open {
+    position: fixed !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
 }
