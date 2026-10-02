@@ -61,6 +61,60 @@ const getDashboardStats = async (req, res) => {
 
 };
 
+const getOrderAnalytics = async (req, res) => {
+
+    try {
+
+        const monthlyOrders = await Order.aggregate([
+
+            {
+                $match: {
+                    createdAt: {
+                        $exists: true
+                    }
+                }
+            },
+
+            {
+                $group: {
+                    _id: {
+                        year: { $year: "$createdAt" },
+                        month: { $month: "$createdAt" }
+                    },
+                    orders: {
+                        $sum: 1
+                    }
+                }
+            },
+
+            {
+                $sort: {
+                    "_id.year": 1,
+                    "_id.month": 1
+                }
+            }
+
+        ]);
+
+        res.json({
+            success: true,
+            monthlyOrders
+        });
+
+    } catch (err) {
+
+        console.error("Order Analytics Error:", err);
+
+        res.status(500).json({
+            success: false,
+            message: err.message
+        });
+
+    }
+
+};
+
 module.exports = {
-    getDashboardStats
+    getDashboardStats,
+    getOrderAnalytics
 };
