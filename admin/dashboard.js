@@ -78,7 +78,7 @@ async function loadOrderAnalytics() {
     try {
 
         const res = await fetch(
-            "http://localhost:5000/api/dashboard/order-analytics"
+            "/api/dashboard/order-analytics"
         );
 
         const data = await res.json();
