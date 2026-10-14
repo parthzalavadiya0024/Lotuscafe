@@ -82,9 +82,51 @@ async function loadMenuItems() {
 
         if (!data.success) return;
 
+        
         menuTable.innerHTML = "";
 
-        data.menuItems.forEach(item => {
+        const categoryOrder = {
+            "Coffee": 1,
+            "Pizza": 2,
+            "Snacks": 3,
+            "Dessert": 4
+        };
+
+        const snackOrder = [
+            "Veg Sandwich",
+            "Cheese Sandwich",
+            "Grilled Sandwich",
+            "Corn Cheese Sandwich",
+            "Paneer Sandwich",
+            "Garlic Bread",
+            "Cheese Garlic Bread",
+            "Nachos",
+            "French Fries",
+            "Burger",
+            "Cheese Burger"
+        ];
+
+        const sortedMenuItems = [...data.menuItems].sort((a, b) => {
+            const orderA = categoryOrder[a.category] ?? 999;
+            const orderB = categoryOrder[b.category] ?? 999;
+
+            if (orderA !== orderB) {
+                return orderA - orderB;
+            }
+
+            if (a.category === "Snacks" && b.category === "Snacks") {
+                const indexA = snackOrder.indexOf(a.name);
+                const indexB = snackOrder.indexOf(b.name);
+
+                return (indexA === -1 ? 999 : indexA) -
+                    (indexB === -1 ? 999 : indexB);
+            }
+
+            return 0;
+        });
+
+sortedMenuItems.forEach(item => {
+
 
             menuTable.innerHTML += `
                 <tr data-id="${item._id}">
